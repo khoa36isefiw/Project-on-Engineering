@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import { Container, Box, Typography } from '@mui/material';
-import '~/Components/GlobalStyles'
+import '../GlobalStyles/GlobalStyles.scss';
 import styles from './MyAccount.module.scss';
 
 const cx = classNames.bind(styles);

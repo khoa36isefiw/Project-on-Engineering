@@ -4,7 +4,6 @@ import {Container, Box, Typography, } from '@mui/material';
 
 import PageNotFound from './pages/NotFound/PageNotFound';
 import Home  from './pages/Home/Home';
-import CreatePost from './pages/CreatePost/CreatePost';
 import MyAccount from './pages/MyAccount/MyAccount';
 import HeaderDesign from './Components/Header/HeaderComponent';
 import SubHeader from './Components/SubHeader/SubHeader';
@@ -26,7 +25,7 @@ function App() {
               <Route path='/' exact element={<Home />}></Route>
               {/* Header */}
               <Route path='/my-account' element={<MyAccount/>}></Route>
-              <Route path='/create' element={<CreatePost/>}></Route>
+              
 
               {/* path for 404 Not Found Page */}
               <Route path="/404" element={<PageNotFound />} />
