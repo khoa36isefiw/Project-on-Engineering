@@ -38,6 +38,8 @@ function HeaderDesign() {
                     sx={{marginRight: 2}} 
                     color='inherit' 
                     startIcon={<FavoriteBorderIcon/>}
+                    component={Link}
+                    to = '/my-wishlist'
                 >Wishlist</Button>
                 
                 <Button 
