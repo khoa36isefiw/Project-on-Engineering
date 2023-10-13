@@ -12,6 +12,8 @@ import Footer from './Components/Footer/Footer';
 
 import ShapeExample from './Components/SlideShowImage';
 import ScrollButtonToTop from './Components/BackToTop';
+import RecoverPassword from './pages/RecoverPassword/RecoverPassword';
+import WishList from './pages/WishList/WishList';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
               <Route path='/' exact element={<Home />}></Route>
               {/* Header */}
               <Route path='/my-account' element={<MyAccount/>}></Route>
+              <Route path='/my-wishlist' element={<WishList/>}></Route>
+              <Route path='/recover-password' element={<RecoverPassword/>}></Route>
               
 
               {/* path for 404 Not Found Page */}
