@@ -8,12 +8,13 @@ const cx = classNames.bind(styles);
 
 function MyAccount() {
   return (
-    <Container className={cx('my-account-container')}>
+    <Box className={cx('my-account-container')}>
       <Box>
         <Typography variant="h3">MY ACCOUNT</Typography>
         <Typography variant="h6">Login</Typography>
+
       </Box>
-    </Container>
+    </Box>
   );
 }
 
