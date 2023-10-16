@@ -4,6 +4,9 @@ import styles from './SubHeader.module.scss';
 import { Typography, Button, Box, Container, Stack, Divider} from '@mui/material';
 import { Link } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
+
+// import logo for website
+import gimmeLogo from '~/assets/images/image-removebg-preview.png';
 // Icon
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
@@ -17,7 +20,8 @@ function SubHeader() {
         <Stack sx={{marginTop: 12, mb: 4}} direction="row" alignItems="center" justifyContent={'space-around'}>
           <Box className={cx('web-logo')}>
             <Link  to='/' title='GIMME SHOES'>
-              <img src='https://t3.ftcdn.net/jpg/05/58/61/32/360_F_558613274_Z1zbjnHZKjpnTvvsjfZzYXk2TIeUl54a.jpg' alt='Logo' />
+              {/* <img src='https://t3.ftcdn.net/jpg/05/58/61/32/360_F_558613274_Z1zbjnHZKjpnTvvsjfZzYXk2TIeUl54a.jpg' alt='Logo' /> */}
+              <img src={gimmeLogo} alt='Logo' />
             </Link>
           </Box>
           <Stack direction="row" alignItems="center"  >
