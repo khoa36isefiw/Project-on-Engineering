@@ -108,7 +108,6 @@ function BasicTable() {
 }
 
 
-
 const cx = classNames.bind(styles);
 function WishList() {
   return (
@@ -121,3 +120,4 @@ function WishList() {
 }
 
 export default WishList
+

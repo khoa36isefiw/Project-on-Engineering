@@ -14,6 +14,8 @@ import ShapeExample from './Components/SlideShowImage';
 import ScrollButtonToTop from './Components/BackToTop';
 import RecoverPassword from './pages/RecoverPassword/RecoverPassword';
 import WishList from './pages/WishList/WishList';
+import Checkout from './pages/Checkout/Checkout';
+import Shop from './pages/Shop/Shop';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
               {/* Header */}
               <Route path='/my-account' element={<MyAccount/>}></Route>
               <Route path='/my-wishlist' element={<WishList/>}></Route>
+              <Route path='/checkout' element={<Checkout/>}></Route>
+              <Route path='/shop' element={<Shop/>}></Route>
               <Route path='/recover-password' element={<RecoverPassword/>}></Route>
               
 

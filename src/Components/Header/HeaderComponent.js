@@ -44,7 +44,12 @@ function HeaderDesign() {
                 
                 <Button 
                     className={cx('hearder-design_button')}
-                    sx={{marginRight: 2}} color='inherit' startIcon={<CheckCircleOutlineIcon/>}>Checkout</Button>
+                    sx={{marginRight: 2}} 
+                    color='inherit' 
+                    startIcon={<CheckCircleOutlineIcon/>}
+                    component={Link}
+                    to = '/checkout'
+                >Checkout</Button>
                 <Button 
                     className={cx('hearder-design_button')}
                     color='inherit' startIcon={<KeyIcon/>}>Login</Button>
