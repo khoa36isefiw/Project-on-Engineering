@@ -1,15 +1,40 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+
 import './NotFound.css';
 
 const PageNotFound = () => {
-  return (
-    <div className="not-found-container">
-      <h1 className="not-found-heading">404 Not Found</h1>
-      <p className="not-found-text">Oops! The page you are looking for does not exist.</p>
-      <Link to="/" className="not-found-link">Go back to homepage</Link>
-    </div>
-  );
+  const navigate = useNavigate();
+    return (
+        <div>
+            <section class="page_404">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 ">
+                            <div class="col-sm-10 col-sm-offset-1  text-center">
+                                <div class="title_404">
+                                    <h1 class="text-center ">404</h1>
+                                </div>
+                                <div class="background_404"></div>
+                                <div class="contant_box_404">
+                                    <h3 class="h2">Look like you're lost</h3>
+                                    <p>
+                                        The page you are looking for not
+                                        avaible!
+                                    </p>
+                                    <Button sx={{mt: 3, width: '150px', height:'55px', fontWeight:'bold'}} variant="contained" onClick={() => {
+                                      // back to home page
+                                      navigate('/')
+                                    }} >Go to Home</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
 };
 
 export default PageNotFound;

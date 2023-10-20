@@ -1,25 +1,41 @@
-.not-found-container {
-    text-align: center;
-    padding: 50px;
-  }
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: 'Arvo', serif;
   
-  .not-found-heading {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: lightgreen;
-  }
+}
+
+.page_404 img {
+  width: 100%;
   
-  .not-found-text {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .not-found-link {
-    font-size: 18px;
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .not-found-link:hover {
-    text-decoration: underline;
-  }
+}
+
+.background_404 {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.title_404 h1 {
+  margin-top: -20px;
+  font-size: 80px;
+  display: flex;
+  justify-content: center;  
+}
+
+.background_404 h3 {
+  font-size: 80px;
+}
+
+
+
+.contant_box_404 {
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
