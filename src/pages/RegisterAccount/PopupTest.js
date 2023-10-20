@@ -15,8 +15,9 @@ import IconButton from '@mui/material/IconButton';
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Slide from '@mui/material/Slide';
-
-import SuccessImage from '~/assets/images/success-icon.png';
+// success-icon-removebg-preview.png
+// import SuccessImage from '~/assets/images/success-icon.png';
+import SuccessImage from '~/assets/images/success-icon-removebg-preview.png';
 import ErrorImage from '~/assets/images/signs-close-icon-png.webp';
 
 // make slide animation
@@ -61,14 +62,14 @@ function PopupTest(props) {
                     <img
                         // src="https://icons.veryicon.com/png/o/miscellaneous/8atour/success-35.png"
                         src={SuccessImage}
-                        style={{ width: '100px', height: '100px' }}
+                        style={{ width: '200px', height: '100px' }}
                         alt="Success Logo"
                     />
                 ) : (
                     <img
                         // src="https://icons.veryicon.com/png/o/miscellaneous/8atour/success-35.png"
                         src={ErrorImage}
-                        style={{ width: '100px', height: '100px' }}
+                        style={{ width: '200px', height: '100px' }}
                         alt="Success Logo"
                     />
                 )}
