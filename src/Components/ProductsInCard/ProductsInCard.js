@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -10,10 +10,11 @@ import classNames from 'classnames/bind';
 import styles from './ProductsInCard.module.scss';
 import PageNotFound from '~/pages/NotFound/PageNotFound';
 import SummaryStep from './SummaryStep';
-import SignInStep from './SignInStep';
 import AddressStep from './AddressStep';
 import ShippingStep from './ShippingStep';
 import PaymentStep from './Payment';
+import SignIn from '../SignIn';
+import Breadcrumbs from './SummaryStep';
 
 // Order state
 const steps = ['Summary', 'Sign In', 'Address', 'Shipping', 'Payment'];
@@ -22,6 +23,9 @@ const cx = classNames.bind(styles);
 function ProductsInCard() {
     const [activeStep, setActiveStep] = useState(0);
     const [completed, setCompleted] = useState({});
+
+    // const [currentStepName, setCurrentStepName] = useState(''); // for 2 step: Home > Shop > GiayNam
+    
     // display name for each step
     const [stepHeaders, setStepHeaders] = useState([
         'Shopping-cart summary', // step 0
@@ -70,14 +74,19 @@ function ProductsInCard() {
     const handleStep = (step) => () => {
         setActiveStep(step);
     };
+    const location = useLocation();
+
 
     // Render GUI with each step similiar to their component
     const renderStepContent = (step) => {
         switch (step) {
             case 0:
+                // AddressStep
                 return <SummaryStep />;
+                
             case 1:
-                return <SignInStep />;
+                // return <SignIn isCheckout={location.pathname === '/checkout'} />;
+                return <SignIn />;
             case 2:
                 return <AddressStep />;
             case 3:
@@ -100,6 +109,7 @@ function ProductsInCard() {
         setActiveStep(0);
         setCompleted({});
     };
+    
 
     return (
         <Box sx={{ width: '100%' }} className={cx('my-account-container')}>
@@ -130,8 +140,11 @@ function ProductsInCard() {
                 ) : (
                     <Fragment>
                         <Typography sx={{ mt: 2, mb: 1, py: 1 }}>Step {activeStep + 1}</Typography>
+                        
                         {activeStep === 0 && <SummaryStep />}
-                        {activeStep === 1 && <SignInStep />}
+                        <Box className={cx('my-account-container2')}>
+                            {activeStep === 1 && <SignIn />}
+                        </Box>
                         {activeStep === 2 && <AddressStep />}
                         {activeStep === 3 && <ShippingStep />}
                         {activeStep === 4 && <PaymentStep />}

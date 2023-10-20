@@ -28,6 +28,7 @@
 
 .menu-vertical-line {
     position: relative;
+    
     // make divider
     &::after {
       content: '';
