@@ -1,5 +1,8 @@
 ## Gimme-shoes
 - Make new GUI: MyAccount, Recover Password in My Account, WishList 
+
+### Cần Chỉnh sửa lại trong code
+- Chỉnh menu sub header --> chưa cách đều, top: margin, padding nhiều hơn so với bottom
 - Need to modify Box to Container. Make the distances the same
 - Trang Address Step:
     + Lỗi Layout không tự động --> hard code

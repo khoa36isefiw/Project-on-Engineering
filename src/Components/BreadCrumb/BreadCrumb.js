@@ -22,9 +22,15 @@ const breadcrumbData = [
     { path: '/signin', name: 'Sign In' },
     { path: '/register-account', name: 'Register Account' },
     { path: '/shop', name: 'Shop' },
+    { path: '/blog', name: 'Blog' },
+    { path: '/contact', name: 'Contact Us' },
+    { path: '/policy', name: 'Policy' },
     { path: '/recover-password', name: 'Recover Password' },
     { path: '/404', name: 'Page Not Found' },
 ];
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.485398611676!2d106.76933281022632!3d10.850637657776673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752763f23816ab%3A0x282f711441b6916f!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBTxrAgcGjhuqFtIEvhu7kgdGh14bqtdCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1svi!2s!4v1697929063371!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 
 
 

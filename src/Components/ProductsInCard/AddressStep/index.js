@@ -75,6 +75,7 @@ function AddressStep() {
                     <ShowDeliveryInformation />
                 </Box>
             </Stack>
+            <Button sx={{mt: 2}} variant='contained'>Add A New Address</Button>
         </Box>
     );
 }

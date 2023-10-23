@@ -1,14 +1,14 @@
 import React from 'react'
-import { Container } from '@mui/material'
+import { Container, Box } from '@mui/material'
 import EmptyCard from '~/Components/EmptyCard/EmptyCard'
 import ProductsInCard from '~/Components/ProductsInCard/ProductsInCard'
 
 function Checkout() {
   return (
-    <Container>
+    <Box>
         <ProductsInCard/>
         <EmptyCard/>
-    </Container>
+    </Box>
   )
 }
 
