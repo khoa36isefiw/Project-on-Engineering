@@ -27,8 +27,11 @@
     - Done sub header
     - Done footer
     - Done 404 not found
+    - Done Contact
 
-    - not yet:
-        + Contact
+    - For this morning 25/10/2023:
+        + not yet Shopping page
+        + ui for users who logged in to page
+        + edit personal account
 
 
