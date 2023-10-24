@@ -1,21 +1,14 @@
 import React from 'react';
-import {
-    Box,
-    Button,
-    Paper,
-    Grid,
-    Typography,
-    TextField,
-    Chip,
-} from '@mui/material';
+import { Box, Button, Paper, Grid, Typography, TextField, Container, Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import styles from './SignIn.module.scss';
 import classNames from 'classnames/bind';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
-const cx = classNames.bind(styles);
+import { CustomTypography, CustomizeTextField } from '~/Components/DefaultLayout';
 
+const cx = classNames.bind(styles);
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -24,122 +17,105 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+const CustomizeButton = styled(Button)(({ variant = 'contained', mt, ml, fs, width }) => ({
+    variant,
+    marginTop: mt || 20,
+    marginLeft: ml || 0,
+    fontSize: fs || '16px',
+    display: 'flex',
+    width: width || '200px',
+    justifyContent: 'flex-start',
+}));
+
 // for person who don't have account
 // function SignIn({ isCheckout }) {
 function SignIn() {
     return (
-        // <Box sx={{height:'100%'}} className={cx({ 'my-account-container': isCheckout })}>
-        <Box sx={{ height: '100%' }} className={cx('my-account-container')}>
+        // <Box sx={{ height: '100%' }} className={cx('my-account-container')}>
+        <Container sx={{ height: '100%' }}>
             {/*  sx={{minHeight: '600px'}} */}
             <Box sx={{ flexGrow: 2 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={6}>
                         <Item sx={{ p: 2, height: '100%' }}>
-                            <Typography
+                            <CustomTypography
                                 fontWeight={700}
+                                fontSize="20px"
                                 className={cx('page-subheading')}
                                 gutterBottom
                             >
                                 Create an account
-                            </Typography>
-                            <Typography
-                                variant="body1"
-                                textAlign={'left'}
-                                gutterBottom
-                            >
-                                Please enter your email address to create an
-                                account.
-                            </Typography>
-                            <Typography
-                                variant="body1"
-                                textAlign={'left'}
-                                gutterBottom
-                            >
+                            </CustomTypography>
+
+                            <CustomTypography variant="body1" textAlign={'left'} gutterBottom>
+                                Please enter your email address to create an account.
+                            </CustomTypography>
+                            <CustomTypography variant="body1" textAlign={'left'}>
                                 Email address
-                            </Typography>
-                            <TextField
+                            </CustomTypography>
+
+                            <CustomizeTextField
                                 fullWidth={true}
                                 id="outlined-basic"
-                                sx={{ mt: 1 }}
                                 label="Email"
                                 variant="outlined"
                             />
 
                             {/* chỗ này cần check lại chiều ngang bất hợp lí */}
-                            <Button
+
+                            <CustomizeButton
                                 variant="contained"
-                                sx={{
-                                    mt: 4,
-                                    ml: 0,
-                                    display: 'flex',
-                                    width: '180px',
-                                    justifyContent: 'flex-start', // Căn chỉnh nội dung bên trái
-                                }}
                                 startIcon={<AccountCircleIcon />}
                                 component={Link}
                                 to="/register-account"
                             >
                                 Create Account
-                            </Button>
+                            </CustomizeButton>
                         </Item>
                     </Grid>
 
+                    {/* Login */}
                     <Grid item xs={6}>
                         <Item sx={{ height: '100%', p: 2 }}>
-                            <Typography
+                            <CustomTypography
                                 fontWeight={700}
+                                fontSize="20px"
                                 className={cx('page-subheading')}
                                 gutterBottom
                             >
                                 Already Have An account
-                            </Typography>
-                            <Typography
-                                variant="body1"
-                                textAlign={'left'}
-                                gutterBottom
-                            >
+                            </CustomTypography>
+                            <CustomTypography variant="body1" textAlign={'left'}>
                                 Email address
-                            </Typography>
-                            <TextField
+                            </CustomTypography>
+                            <CustomizeTextField
                                 fullWidth={true}
                                 id="outlined-basic"
-                                sx={{ mt: 1 }}
                                 label="Email"
                                 variant="outlined"
-                                gutterBottom
                             />
-                            <Typography
-                                variant="body1"
-                                sx={{ textAlign: 'left', mt: 2 }}
-                                gutterBottom
-                            >
+                            <CustomTypography variant="body1" sx={{ textAlign: 'left', mt: 2 }}>
                                 Password
-                            </Typography>
-                            <TextField
+                            </CustomTypography>
+                            <CustomizeTextField
                                 fullWidth={true}
                                 id="outlined-basic"
-                                sx={{ mt: 1 }}
                                 label="Password"
                                 type="password"
                                 variant="outlined"
                             />
-                            <Button
+                            <CustomizeButton
                                 variant="contained"
-                                sx={{
-                                    mt: 4,
-                                    ml: 0,
-                                    alignItems: 'flex-start',
-                                    display: 'flex',
-                                }}
+                                width="120px"
                                 startIcon={<LockIcon />}
                             >
                                 Sign In
-                            </Button>
+                            </CustomizeButton>
                         </Item>
                     </Grid>
                 </Grid>
             </Box>
-        </Box>
+        </Container>
     );
 }
 

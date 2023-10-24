@@ -3,17 +3,12 @@ import {
     Container,
     Typography,
     Stack,
-    InputLabel,
-    MenuItem,
-    Grid,
-    Select,
     Checkbox,
     FormControlLabel,
-    FormControl,
     Paper,
     Button,
-    IconButton,
 } from '@mui/material';
+
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import { styled } from '@mui/material/styles';
@@ -25,6 +20,15 @@ import { DialerSip } from '@mui/icons-material';
 import ChooseAddress from './ChooseAddress';
 const cx = classNames.bind(styles);
 
+const CustomizeTypography = styled(Typography)(({ fs }) => ({
+    fontSize: fs || '16px',
+}));
+
+const CustomizeButton = styled(Button)(({ fs }) => ({
+    fontSize: fs || '14px',
+    marginTop: '8px',
+}));
+
 function AddressStep() {
     const [age, setAge] = useState('');
 
@@ -34,29 +38,31 @@ function AddressStep() {
 
     return (
         <Box sx={{ height: '100%' }}>
-            <Stack
-                direction={{ xs: 'column', sm: 'row' }}
-                spacing={{ xs: 1, sm: 2, md: 4 }}
-            >
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={{ xs: 1, sm: 2, md: 4 }}>
                 {/* delivery address*/}
                 <Box>
-                    <Typography variant="body1">
+                    <CustomizeTypography variant="body1">
                         Choose a delivery address:
-                    </Typography>
+                    </CustomizeTypography>
                     {/* Choose address */}
                     <ChooseAddress />
+
                     <FormControlLabel
-                        control={<Checkbox />}
-                        label="Use the delivery address as the billing address."
+                        control={<Checkbox sx={{ '& .MuiSvgIcon-root': { fontSize: '22px' } }} />}
+                        label={
+                            <CustomizeTypography sx={{ fontSize: '15px' }}>
+                                Use the delivery address as the billing address.
+                            </CustomizeTypography>
+                        }
                     />
                 </Box>
 
                 {/* billing address */}
                 <Box>
                     <Box sx={{ ml: 29 }}>
-                        <Typography variant="body1">
+                        <CustomizeTypography variant="body1">
                             Choose a billing address:
-                        </Typography>
+                        </CustomizeTypography>
 
                         <ChooseAddress />
                     </Box>
@@ -75,13 +81,13 @@ function AddressStep() {
                     <ShowDeliveryInformation />
                 </Box>
             </Stack>
-            <Button sx={{mt: 2}} variant='contained'>Add A New Address</Button>
+            <CustomizeButton sx={{ mt: 2, fontSize: '14px' }} variant="contained">
+                Add A New Address
+            </CustomizeButton>
         </Box>
     );
 }
 export default AddressStep;
-
-
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -94,28 +100,24 @@ const Item = styled(Paper)(({ theme }) => ({
 function ShowDeliveryInformation() {
     return (
         <Box sx={{ border: '1px solid #ebebeb', width: '500px', p: 2 }}>
-            <Typography variant="h4" gutterBottom>
+            <CustomizeTypography variant="h4" gutterBottom>
                 YOUR DELIVERY ADDRESS
-            </Typography>
+            </CustomizeTypography>
             <Box sx={{ border: '1px solid #ebebeb' }}></Box>
-            <Typography variant="body2" mt={2}>
+            <CustomizeTypography variant="body2" mt={2}>
                 Luna Kei
-            </Typography>
-            <Typography variant="body2">Japan HCMUTE</Typography>
-            <Typography variant="body2">
-                Đệ Nhị Số 2 Võ Văn Ngân Đệ Tam Số 3 Võ Văn Ngân
-            </Typography>
-            <Typography variant="body2">
-                HCMUTE Vip Pro Max, Alabama 09982
-            </Typography>
-            <Typography variant="body2">United States</Typography>
-            <Typography variant="body2">0123</Typography>
-            <Typography gutterBottom variant="body2">
+            </CustomizeTypography>
+            <CustomizeTypography variant="body2">Japan HCMUTE</CustomizeTypography>
+            <CustomizeTypography variant="body2">Đệ Nhị Số 2 Võ Văn Ngân Đệ Tam Số 3 Võ Văn Ngân</CustomizeTypography>
+            <CustomizeTypography variant="body2">HCMUTE Vip Pro Max, Alabama 09982</CustomizeTypography>
+            <CustomizeTypography variant="body2">United States</CustomizeTypography>
+            <CustomizeTypography variant="body2">0123</CustomizeTypography>
+            <CustomizeTypography gutterBottom variant="body2">
                 0123
-            </Typography>
-            <Button variant="contained" endIcon={<ArrowForwardIosIcon />}>
+            </CustomizeTypography>
+            <CustomizeButton variant="contained" endIcon={<ArrowForwardIosIcon />}>
                 Update
-            </Button>
+            </CustomizeButton>
         </Box>
     );
 }

@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     List,
     ListItemButton,
     ListItemIcon,
     ListItemText,
     Collapse,
-    Typography
+    Typography,
 } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
 import StoreIcon from '@mui/icons-material/Store';
+import { CustomTypography } from '~/Components/DefaultLayout';
 
 function ContactInformation() {
     const [open, setOpen] = useState(false);
@@ -41,9 +42,9 @@ function ContactInformation() {
         >
             <ListItemButton onClick={handleClick}>
                 <ListItemIcon>
-                    <StoreIcon />
+                    <StoreIcon fontSize='large'/>
                 </ListItemIcon>
-                <ListItemText primary="View full store hours" />
+                <ListItemText primary={<CustomTypography>View full store hours</CustomTypography>} />
                 {open ? <ExpandMore /> : <ExpandLess />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
@@ -51,14 +52,14 @@ function ContactInformation() {
                     {daysOfWeek.map((day, index) => (
                         <ListItemButton key={index} sx={{ pl: 4, ml: '-10px' }}>
                             <ListItemIcon>
-                                <AccessAlarmsIcon />
+                                <AccessAlarmsIcon fontSize='large'/>
                             </ListItemIcon>
                             <ListItemText
                                 sx={{ ml: '-10px' }}
                                 primary={
-                                    <Typography variant="body1">
+                                    <CustomTypography variant="body1">
                                         <strong>{day.day}</strong>: {day.opening} - {day.closing}
-                                    </Typography>
+                                    </CustomTypography>
                                 }
                             />
                         </ListItemButton>

@@ -23,7 +23,7 @@ const PageNotFound = () => {
                                         The page you are looking for not
                                         avaible!
                                     </p>
-                                    <Button sx={{mt: 3, width: '150px', height:'55px', fontWeight:'bold'}} variant="contained" onClick={() => {
+                                    <Button sx={{mt: 3, width: '150px', height:'55px', fontWeight:'bold', fontSize: '18px'}} variant="contained" onClick={() => {
                                       // back to home page
                                       navigate('/')
                                     }} >Go to Home</Button>

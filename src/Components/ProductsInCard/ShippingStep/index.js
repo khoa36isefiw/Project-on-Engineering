@@ -4,7 +4,8 @@ import styles from './ShippingStep.module.scss';
 import classNames from 'classnames/bind';
 import { Typography, Box, Radio, Divider, Stack, Checkbox, Button } from '@mui/material';
 import DeliveryTruck from '~/assets/images/delivery-truck.png';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { CustomTypography } from '~/Components/DefaultLayout';
 
 const commonStyles = {
     bgcolor: 'background.paper',
@@ -16,12 +17,12 @@ const commonStyles = {
 
 const cx = classNames.bind(styles);
 function ShippingStep() {
-  const [checked, setChecked] = React.useState(true);
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const [checked, setChecked] = React.useState(true);
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-  const handleCheckChange = (event) => {
-    setChecked(event.target.checked);
-  };
+    const handleCheckChange = (event) => {
+        setChecked(event.target.checked);
+    };
     const [selectedValue, setSelectedValue] = React.useState('a');
 
     const handleChange = (event) => {
@@ -30,9 +31,9 @@ function ShippingStep() {
     return (
         <Box>
             <Box sx={{ ...commonStyles, border: 1, p: 2 }}>
-                <Typography variant="body1" fontWeight={'bold'}>
+                <CustomTypography variant="body1" fontWeight={'bold'} fontSize="20px">
                     Choose a shipping option for this address: Em số 2 HCMUTE
-                </Typography>
+                </CustomTypography>
                 <Box
                     sx={{
                         ...commonStyles,
@@ -57,6 +58,17 @@ function ShippingStep() {
                         value="a"
                         name="radio-buttons"
                         inputProps={{ 'aria-label': 'A' }}
+                        sx={{
+                            width: 24, // Tăng kích thước chiều rộng
+                            height: 24, // Tăng kích thước chiều cao
+                            pl: 3, pr: 3,
+                            '& .MuiSvgIcon-root': {
+                                fontSize: 20, // Tăng kích thước của biểu tượng radio
+                            },
+                            '&:hover': {
+                                bgcolor: '#fff', // change color
+                            },
+                        }}
                     />
                     <Divider orientation="vertical" flexItem borderColor="success" />
                     <Box sx={{ ml: 4, mr: 4 }}>
@@ -67,25 +79,26 @@ function ShippingStep() {
                         />
                     </Box>
                     <Divider orientation="vertical" flexItem borderColor="success" />
-                    <Typography variant="body1" sx={{ flexGrow: 4 }}>
+                    <CustomTypography variant="body1" sx={{ flexGrow: 4, fontSize: '15px' }}>
                         <strong>My carrier</strong> Delivery next day!
-                    </Typography>
+                    </CustomTypography>
                     <Divider orientation="vertical" flexItem borderColor="success" />
-                    <Typography variant="body1" sx={{ flexGrow: 1 }}>
+                    <CustomTypography variant="body1" sx={{ flexGrow: 1 }}>
                         $2.00
-                    </Typography>
+                    </CustomTypography>
                 </Box>
-              <Box>
-                <Typography>Terms of service</Typography>
-                <Stack direction={'row'} alignItems="center">
-                  <Checkbox {...label}  />
-                  <Typography>I agree to the terms of service and will adhere to them unconditionally.</Typography>
-                </Stack>
-                <Button component={Link} to="/policy">
-    Read the Terms of Service
-</Button>
-              </Box>
-
+                <Box>
+                    <CustomTypography fontSize='15px'>Terms of service</CustomTypography>
+                    <Stack direction={'row'} alignItems="center">
+                        <Checkbox {...label} size="large" />
+                        <CustomTypography fontSize='15px'>
+                            I agree to the terms of service and will adhere to them unconditionally.
+                        </CustomTypography>
+                    </Stack>
+                    <Button component={Link} to="/policy" sx={{fontSize:'14px'}}>
+                        Read the Terms of Service
+                    </Button>
+                </Box>
             </Box>
         </Box>
     );

@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-    FormControl,
-    Select,
-    MenuItem,
-    OutlinedInput,
-    Paper,
-} from '@mui/material';
+import { FormControl, Select, MenuItem, OutlinedInput, Paper } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import { names } from './data/TestData';
@@ -28,6 +22,10 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+const CustomizeMenuItem = styled(MenuItem)(({}) => ({
+    fontSize: '16px',
+}));
+
 function ChooseAddress() {
     const theme = useTheme();
     const [personName, setPersonName] = useState('');
@@ -43,23 +41,22 @@ function ChooseAddress() {
                     value={personName}
                     onChange={handleChange}
                     input={<OutlinedInput />}
-                    renderValue={(selected) =>
-                        selected ? selected : <em>Placeholder</em>
-                    }
+                    renderValue={(selected) => (selected ? selected : <em>Placeholder</em>)}
                     MenuProps={MenuProps}
                     inputProps={{ 'aria-label': 'Without label' }}
+                    sx={{fontSize: '18px'}}
                 >
-                    <MenuItem disabled value="">
+                    <CustomizeMenuItem disabled value="" >
                         <em>Placeholder</em>
-                    </MenuItem>
+                    </CustomizeMenuItem>
                     {names.map((name) => (
-                        <MenuItem
+                        <CustomizeMenuItem
                             key={name}
                             value={name}
                             style={getStyles(name, personName, theme)}
                         >
                             {name}
-                        </MenuItem>
+                        </CustomizeMenuItem>
                     ))}
                 </Select>
             </FormControl>

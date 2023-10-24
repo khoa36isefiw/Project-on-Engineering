@@ -13,3 +13,22 @@
 - Register Account:
     + Lỗi hình Success
     + Chỉnh lại, cân nhắc thêm layout không?
+- Slide Show Image: cần chỉnh lại
+    + chỉnh lại width
+    + các nó chạy qua lại
+
+- Chỉnh chữ lại: styles sau khi reset lại css
+    - Done Header 
+    - done My Account
+    - done Wish List
+    - done Checkout
+    - done Sign In
+    - Done lost password
+    - Done sub header
+    - Done footer
+    - Done 404 not found
+
+    - not yet:
+        + Contact
+
+

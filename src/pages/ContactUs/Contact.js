@@ -9,6 +9,7 @@ import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
 import StoreIcon from '@mui/icons-material/Store';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import ContactInformation from './ContactInformation';
+import { CustomTypography } from '~/Components/DefaultLayout';
 const cx = classNames.bind(styles);
 
 
@@ -41,25 +42,16 @@ function ContactUs() {
                     md={4}
                     sx={{ border: '1px solid #333', p: 2, maxWidth: '380px', borderRadius: '10px' }}
                 >
-                    <Typography variant="h4" sx={{ fontWeight: 'bold', fontSize: '24px' }}>
+                    <CustomTypography variant="h4" sx={{ fontWeight: 'bold', fontSize: '24px' }}>
                         HCMUTE
-                    </Typography>
-                    <Typography sx={{ wordWrap: 'break-word' }}>
+                    </CustomTypography>
+                    <CustomTypography sx={{ wordWrap: 'break-word' }}>
                         01 Võ Văn Ngân, Linh Chiểu, Thủ Đức, Thành phố Hồ Chí Minh.
-                    </Typography>
-                    <Typography sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
+                    </CustomTypography>
+                    <CustomTypography sx={{ display: 'flex', alignItems: 'center', mt: 2 }}>
                         <PhoneEnabledIcon />
                         <span style={{ marginLeft: '8px' }}>(+84) 0123456</span>
-                    </Typography>
-                    <TextField
-                        label="Địa chỉ"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        sx={{ mt: 2 }}
-                    />
-                    <Button variant="contained" onClick={handleSearch} sx={{ mt: 2 }}>
-                        Tìm kiếm
-                    </Button>
+                    </CustomTypography>
                     {/* <NestedList /> */}
                     <ContactInformation />
                 </Grid>

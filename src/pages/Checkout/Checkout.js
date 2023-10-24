@@ -5,10 +5,10 @@ import ProductsInCard from '~/Components/ProductsInCard/ProductsInCard'
 
 function Checkout() {
   return (
-    <Box>
+    <Container>
         <ProductsInCard/>
         <EmptyCard/>
-    </Box>
+    </Container>
   )
 }
 
