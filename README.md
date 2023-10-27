@@ -33,5 +33,7 @@
         + not yet Shopping page
         + ui for users who logged in to page
         + edit personal account
+        + not yet create new account --> reset css and add picture on the right hand side
+        + chưa chỉnh spacing cho các ảnh tại trang home
 
 
