@@ -6,7 +6,7 @@ import styles from './SignIn.module.scss';
 import classNames from 'classnames/bind';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
-import { CustomTypography, CustomizeTextField } from '~/Components/DefaultLayout';
+import { CustomTypography, CustomizeTextField } from '~/Layouts/DefaultLayout';
 
 const cx = classNames.bind(styles);
 const Item = styled(Paper)(({ theme }) => ({

@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { Box, styled, Paper, Grid, IconButton, Button, Typography, Container } from '@mui/material';
+import { Box, styled, Paper, Grid, IconButton, Button, Typography, Container, Divider} from '@mui/material';
 import { CustomTypography, MakeProductsCard } from '~/Layouts/DefaultLayout';
 import { ArrowBackIos } from '@mui/icons-material';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+const ButtonContainer = styled(Button)({
+    alignItems: 'center',
+    justifyContent:'center',
+    
+});
 
 const products = [
     {
@@ -104,7 +110,7 @@ const products = [
     {
         id: 13,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcXpm4ny5GI11GmXzg15iMMkrgeri9OKYvScWaec760Iav2DYoXbStyYw8PwNnA5jRgrQ&usqp=CAU',
-        title: 'Last',
+        title: 'Smile',
         price: '9,999,999',
         rating: 5,
         label: false,
@@ -119,74 +125,9 @@ const products = [
     },
 ];
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1aA2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
-
-export function ResponsiveGrid() {
+export default function ResponsiveViewedProducts() {
     const [currentImages, setCurrentImages] = useState([0, 1, 2, 3, 4, 5, 6, 7]);
-
-
-     
-
-    // const handleNext = () => {
-        // const nextIndex1 = (currentImages[3] + 1) % products.length;
-        // const nextIndex2 = (currentImages[7] + 1) % products.length;
-    //     const updatedImages = [...currentImages];
-    //     updatedImages[2] = updatedImages[3];
-    //     updatedImages[6] =  updatedImages[7];
-        
-
-    //     updatedImages[3] = nextIndex1;
-    //     updatedImages[7] = nextIndex2;
-    //     // updatedImages[1] = updatedImages[2];
-    //     // updatedImages[5] =  updatedImages[6];
-    //     // updatedImages[0] = updatedImages[1];
-    //     // updatedImages[4] =  updatedImages[5];
-        
-
-
-    //     setCurrentImages(updatedImages);
-    // };
-
-    
-    // const handleNext = () => {
-    //     // const nextIndex0 = (currentImages[1] + 1) % products.length;
-    //     // const nextIndex1 = (currentImages[0] + 1) % products.length;
-    //     // const nextIndex4 = (currentImages[5] + 1) % products.length;
-    //     // const nextIndex5 = (currentImages[4] + 1) % products.length;
-    //     // const nextIndex3 = (currentImages[3] + 1) % products.length;
-    //     // const nextIndex7 = (currentImages[7] + 1) % products.length;
-
-    //     const nextIndex0 = (currentImages[0] + 1) % products.length;
-    //     const nextIndex1 = (currentImages[1] + 1) % products.length;
-    //     const nextIndex4 = (currentImages[4] + 1) % products.length;
-    //     const nextIndex2 = (currentImages[2] + 1) % products.length;
-    //     const nextIndex6 = (currentImages[6] + 1) % products.length;
-    //     const nextIndex5 = (currentImages[5] + 1) % products.length;
-    //     const nextIndex3 = (currentImages[3] + 1) % products.length;
-    //     const nextIndex7 = (currentImages[7] + 1) % products.length;
-      
-    //     const updatedImages = [...currentImages];
-    //     // updatedImages[2] = updatedImages[3];
-    //     // updatedImages[6] = updatedImages[7];
-    //     updatedImages[2] = nextIndex2;
-    //     updatedImages[6] = nextIndex6;
-    //     updatedImages[0] = nextIndex0;
-    //     updatedImages[1] = nextIndex1;
-    //     updatedImages[4] = nextIndex4;
-    //     updatedImages[5] = nextIndex5;
-    //     updatedImages[3] = nextIndex3;
-      
-    //     updatedImages[7] = nextIndex7;
-    //     setCurrentImages(updatedImages);
-    //   };
-
 
     const handleNext = () => {
         const updatedImages = [...currentImages];
@@ -215,26 +156,44 @@ export function ResponsiveGrid() {
       };
 
     return (
-        <Box sx={{ flexGrow: 1, mt: 3 }}>
-            <Button variant="contained" onClick={handlePrevious}>
-                Previous
-            </Button>
+        <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems:'center' }}>
+                <CustomTypography variant="h3" sx={{ fontSize: '24px', fontWeight: 'bold' }}>
+                    MOST PRODUCTS VIEWED
+                </CustomTypography>
+                <Box >
+                    <ButtonContainer onClick={handlePrevious} variant='contained' sx={{mr: 2}}>
+                        <ArrowBackIos sx={{ fontSize: '24px', marginRight:'-25%' }} />
+                    </ButtonContainer>
+                    <ButtonContainer onClick={handleNext} variant='contained'>
+                        <ArrowForwardIosIcon sx={{ fontSize: '24px', margin:'0 auto' }} />
+                    </ButtonContainer>
+                </Box>
+            </Box>
+            <Divider sx={{mt:1, mb:2}}/>
+            
             <Grid container spacing={{ xs: 2, md: 3 }}>
                 {currentImages.map((imageIndex) => (
                     <Grid item xs={6} sm={3} md={3} sx={{ display: 'flex' }}>
-                        <MakeProductsCard
+                        <MakeProductsCard                        
                             image={products[imageIndex].img}
                             title={products[imageIndex].title}
                             price={products[imageIndex].price}
                             rating={products[imageIndex].rating}
                             label={products[imageIndex].label}
+                            
+                            // custom card
+                            minWidthCard={'240px'}
+                            maxHeightCard={'210px'}
+                            imgHeight={'140px'}
+                            imgWidth={'75%'}
                         />
                     </Grid>
                 ))}
             </Grid>
-            <Button variant="contained" onClick={handleNext}>
-                Next
-            </Button>
+            
         </Box>
     );
 }
+
+

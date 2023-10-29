@@ -11,7 +11,7 @@ import {
     IconButton,
     CircularProgress,
     styled,
-    TableCell, 
+    TableCell,
     TextField,
 } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -62,7 +62,7 @@ export const CustomTooltip = styled(({ className, ...props }) => (
     },
 }));
 
-export const CustomizeButton = styled(Button)(({handleNavigateTo, fontSize}) => ({
+export const CustomizeButton = styled(Button)(({ handleNavigateTo, fontSize }) => ({
     variant: 'contained',
     margin: '0 auto',
     display: 'flex',
@@ -118,7 +118,17 @@ export const products = [
 
 // Make Products Card Item for Home Page
 
-export function MakeProductsCard({ image, title, price, rating, label }) {
+export function MakeProductsCard({
+    image,
+    title,
+    price,
+    rating,
+    label,
+    minWidthCard,
+    maxHeightCard,
+    imgHeight,
+    imgWidth,
+}) {
     const navigate = useNavigate();
     const [hoverCard, setHoverCard] = useState(false);
     const [checkAddToWishList, setCheckAddToWishList] = useState(false);
@@ -148,19 +158,17 @@ export function MakeProductsCard({ image, title, price, rating, label }) {
         navigate('/my-wishlist');
     };
 
-
     // handle navigating to the product detail page
     const handleNavigateToProductDetails = () => {
         navigate('/product-details');
-    }
-    
+    };
 
     return (
         <Box>
             <Card
                 sx={{
-                    minWidth: 270,
-                    maxHeight: 285,
+                    minWidth: minWidthCard || 270,
+                    maxHeight: maxHeightCard || 285,
                     cursor: 'pointer',
                     position: 'relative',
                     transformStyle: 'preserve-3d',
@@ -191,19 +199,21 @@ export function MakeProductsCard({ image, title, price, rating, label }) {
                 )}
 
                 <CardMedia
+                
+                
                     component="img"
-                    height="194"
+                    height={ imgHeight || "194"}
                     image={image}
                     alt="Product Image"
-                    style={{ objectFit: 'contain', width: '95%', margin: '0 auto' }}
+                    style={{ objectFit: 'contain', width: imgWidth || '95%', margin: '0 auto' }}
                 />
 
                 <CardActions disableSpacing sx={{ display: 'block' }}>
                     <Zoom in={hoverCard}>
                         <Box>
                             <Button fullWidth variant="contained">
-                                <AddShoppingCartIcon sx={{ mr: 2, fontSize: '20px' }} />
-                                <Typography sx={{ fontSize: '16px' }}>Add to Cart</Typography>
+                                <AddShoppingCartIcon sx={{ mr: 2, fontSize: '16px' }} />
+                                <Typography sx={{ fontSize: '14px' }}>Add to Cart</Typography>
                             </Button>
                         </Box>
                     </Zoom>
@@ -214,10 +224,9 @@ export function MakeProductsCard({ image, title, price, rating, label }) {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-around',
-                                mt: '8px',
+                                
                                 mb: '2px',
                             }}
-                            
                         >
                             {/*  */}
                             {isLoading ? (
@@ -263,7 +272,7 @@ export function MakeProductsCard({ image, title, price, rating, label }) {
                                                 color: 'var( --icon-hover)',
                                             },
                                         }}
-                                        onClick= {handleNavigateToProductDetails}
+                                        onClick={handleNavigateToProductDetails}
                                     />
                                 </CustomTooltip>
                             </IconButton>
@@ -271,9 +280,9 @@ export function MakeProductsCard({ image, title, price, rating, label }) {
                     </Zoom>
                 </CardActions>
             </Card>
-            <Box maxWidth={'270px'} sx={{ textAlign: 'center', mt: 1 }}>
+            <Box maxWidth={minWidthCard} sx={{ textAlign: 'center', mt: 1 }}>
                 <Typography sx={{ fontSize: '15px' }}>{title}</Typography>
-                <Typography sx={{ fontSize: '15px' }}>
+                <Typography sx={{ fontSize: '14px' }}>
                     <strong>{price} VND</strong>
                 </Typography>
                 <Rating name="read-only" value={valueRating} readOnly size="large" />

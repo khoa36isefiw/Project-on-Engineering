@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import { Container, Box, Typography, Button, TextField, styled } from '@mui/material';
 import '~/Components/GlobalStyles';
 import styles from './RecoverPassword.module.scss';
-import { CustomTypography, CustomizeTextField } from '~/Components/DefaultLayout';
+import { CustomTypography, CustomizeTextField } from '~/Layouts/DefaultLayout';
 
 const cx = classNames.bind(styles);
 

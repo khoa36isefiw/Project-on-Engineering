@@ -28,12 +28,21 @@
     - Done footer
     - Done 404 not found
     - Done Contact
+    - Done: chưa chỉnh spacing cho các ảnh tại trang home
+    - Done: khi click vào view detail --> nó hiểu là add products to wishlist
 
-    - For this morning 25/10/2023:
-        + not yet Shopping page
-        + ui for users who logged in to page
-        + edit personal account
-        + not yet create new account --> reset css and add picture on the right hand side
-        + chưa chỉnh spacing cho các ảnh tại trang home
+    - For this morning 25/10/2023:??? **(trễ tận 2 ngày!)**
+        + not yet Home page: DOING
+        + ui for users who logged in to page: not yet
+        + edit personal account: not yet
+        + not yet create new account --> reset css and add picture on the right hand side: not yet
+        + chỉnh lại ô search ở trên sub header: NOT YET
+        + chỉnh lại slide image ở trên footer: Tìm hình ảnh cho các hãng giày rồi cho nó slide image ---> NOT YET
 
 
+    - 27/10/2023
+        - bug:
+            
+            + tabProducts: size hình ảnh nó không đồng nhất ---> chưa có hướng giải quyết
+            + BUG GUI: Chỉnh lại padding, margin chiều cao của 1 component - Trang (Home Page)
+        

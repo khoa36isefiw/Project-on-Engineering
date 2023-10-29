@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import { Typography, Box, Radio, Divider, Stack, Checkbox, Button } from '@mui/material';
 import DeliveryTruck from '~/assets/images/delivery-truck.png';
 import { Link } from 'react-router-dom';
-import { CustomTypography } from '~/Components/DefaultLayout';
+import { CustomTypography } from '~/Layouts/DefaultLayout';
 
 const commonStyles = {
     bgcolor: 'background.paper',

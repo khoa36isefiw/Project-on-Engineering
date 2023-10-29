@@ -1,9 +1,11 @@
 import  React, {useState} from 'react';
-import {Box, Tab, styled} from '@mui/material'
+import {Box, Tab, Typography, styled} from '@mui/material'
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import RecipeReviewCard from './ProductsCard';
+import BestSeller from './BestSeller';
+import ProductsCardTest from './MakeProductsCardItem';
 const CustomTab = (styled)(Tab)(({}) => ({
     fontSize: '18px',
     color: '#333',
@@ -36,11 +38,13 @@ export default function TabProducts() {
         </Box>
         <CustomTabPanel value="1">
             <Box>
-                <RecipeReviewCard/>
-                
+                {/* <RecipeReviewCard/> */}
+                <ProductsCardTest/>
             </Box>
         </CustomTabPanel>
-        <CustomTabPanel value="2">Best Seller</CustomTabPanel>
+        <CustomTabPanel value="2">
+          <BestSeller/>
+        </CustomTabPanel>
         <CustomTabPanel value="3">Featured</CustomTabPanel>
       </TabContext>
     </Box>

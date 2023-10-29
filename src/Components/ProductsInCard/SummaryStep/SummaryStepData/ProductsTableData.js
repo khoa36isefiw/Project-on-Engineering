@@ -1,7 +1,7 @@
 import { Box, Typography, IconButton, Tooltip, Stack } from '@mui/material';
 import { Item } from '../Contants';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { CustomTypography } from '~/Components/DefaultLayout';
+import { CustomTypography } from '~/Layouts/DefaultLayout';
 // Data Products are added to cart
 function createData(
     productImage,

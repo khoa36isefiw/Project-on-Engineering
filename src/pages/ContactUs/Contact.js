@@ -9,7 +9,7 @@ import AccessAlarmsIcon from '@mui/icons-material/AccessAlarms';
 import StoreIcon from '@mui/icons-material/Store';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import ContactInformation from './ContactInformation';
-import { CustomTypography } from '~/Components/DefaultLayout';
+import { CustomTypography } from '~/Layouts/DefaultLayout';
 const cx = classNames.bind(styles);
 
 

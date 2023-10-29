@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import PageNotFound from './pages/NotFound/PageNotFound';
 import Home from './pages/Home/Home';
 import MyAccount from './pages/MyAccount/MyAccount';
-import HeaderDesign from './Components/Header/HeaderComponent';
-import SubHeader from './Components/SubHeader/SubHeader';
+import HeaderDesign from './Layouts/Header/HeaderComponent';
+import SubHeader from './Layouts/SubHeader/SubHeader';
 import GimmeMenu from './Components/GimmeMenu/GimmeMenu';
-import Footer from './Components/Footer/Footer';
+import Footer from './Layouts/Footer/Footer';
 
 import ScrollButtonToTop from './Components/BackToTop';
 import RecoverPassword from './pages/RecoverPassword/RecoverPassword';
