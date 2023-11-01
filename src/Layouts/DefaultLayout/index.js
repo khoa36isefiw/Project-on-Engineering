@@ -117,7 +117,6 @@ export const products = [
 ];
 
 // Make Products Card Item for Home Page
-
 export function MakeProductsCard({
     image,
     title,
@@ -128,6 +127,7 @@ export function MakeProductsCard({
     maxHeightCard,
     imgHeight,
     imgWidth,
+    marginLeft
 }) {
     const navigate = useNavigate();
     const [hoverCard, setHoverCard] = useState(false);

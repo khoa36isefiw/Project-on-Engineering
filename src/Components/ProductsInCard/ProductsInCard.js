@@ -29,6 +29,15 @@ const CustomButton = styled(Button)(({ fontSize }) => ({
     fontSize: fontSize || '15px', // Thay đổi giá trị '12px' thành '24px' hoặc giá trị tùy chỉnh khác
 }));
 
+
+// zoom number in stepper
+const CustomStepButton = styled(StepButton)(() => ({
+    '& .MuiStepIcon-text': {
+        fontSize: '12px', // Adjust the font size as desired
+      },
+}));
+
+
 const CustomStepper = styled(Stepper)(({ theme }) => ({
     '& .MuiStepIcon-root': {
       width: '20',
@@ -140,18 +149,18 @@ function ProductsInCard() {
                 {stepHeaders[activeStep]}
             </CustomTypography>
 
-            
+            {/* MuiStepIcon-text */}
             <CustomStepper nonLinear activeStep={0} >
                 {steps.map((label, index) => (
                     <Step key={label} completed={completed[index]} >
-                        <StepButton
+                        <CustomStepButton
                             fontSize="36px"
                             color="inherit"
                             onClick={handleStep(index)}
                             
                         >
                             <CustomTypography>{label}</CustomTypography>
-                        </StepButton>
+                        </CustomStepButton>
                     </Step>
                 ))}
             </CustomStepper>

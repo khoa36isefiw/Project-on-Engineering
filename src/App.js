@@ -22,6 +22,7 @@ import ContactUs from './pages/ContactUs/Contact';
 import SlideShowBranchStore from './Components/SlideShowImage';
 import NewHeaderDesign from './Layouts/Header/NewHeaderDesign';
 import PersonalAccount from './Components/LoggedIn/Profile/PersonalAccount';
+import { Container } from '@mui/material';
 
 function App() {
     return (
@@ -42,6 +43,7 @@ function AppContent() {
     const shouldDisplayHeaderAndFooter = location.pathname !== '/404';
 
     return (
+        // bao bọc toàn bộ trang web
         <>
             {shouldDisplayHeaderAndFooter && (
                 <>

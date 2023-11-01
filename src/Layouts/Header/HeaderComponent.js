@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, styled } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, styled, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 // import '../GlobalStyles/GlobalStyles.scss';
@@ -43,51 +43,56 @@ const CustomizeButton = styled(Button)({
 });
 
 function HeaderDesign() {
-    
     return (
-        <AppBar position="fixed">
-            <Toolbar className={cx('custom-header')}>
-                <HomeIcon fontSize="large"></HomeIcon>
+        <AppBar position="fixed" sx={{bgcolor:'var(--header-color)'}}> 
+            <Container >
+                <Toolbar className={cx('custom-header')}>
+                    <HomeIcon fontSize="large"></HomeIcon>
 
-                <Typography
-                    variant="h5"
-                    sx={{ flexGrow: 1, fontSize: '16px' }}
-                    paddingLeft={2}
-                    align="left"
-                    className={cx('running-text')}
-                >
-                    <span>GIMME STORE</span>
-                </Typography>
-
-                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <CustomizeButton component={Link} to="/my-account" startIcon={<PersonIcon />}>
-                        My Account
-                    </CustomizeButton>
-
-                    <CustomizeButton
-                        component={Link}
-                        to="/my-wishlist"
-                        startIcon={<FavoriteBorderIcon />}
+                    <Typography
+                        variant="h5"
+                        sx={{ flexGrow: 1, fontSize: '16px' }}
+                        paddingLeft={2}
+                        align="left"
+                        className={cx('running-text')}
                     >
-                        Wish List
-                    </CustomizeButton>
+                        <span>GIMME STORE</span>
+                    </Typography>
 
-                    <CustomizeButton
-                        component={Link}
-                        to="/checkout"
-                        startIcon={<CheckCircleOutlineIcon />}
-                    >
-                        Checkout
-                    </CustomizeButton>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <CustomizeButton
+                            component={Link}
+                            to="/my-account"
+                            startIcon={<PersonIcon />}
+                        >
+                            My Account
+                        </CustomizeButton>
 
-                    <CustomizeButton component={Link} to="/signin" startIcon={<KeyIcon />}>
-                        Sign In
-                    </CustomizeButton>
-                    {/* <Box sx={{ ml: 2 }}>
-                        <UserAuthenticated />
-                    </Box> */}
-                </Box>
-            </Toolbar>{' '}
+                        <CustomizeButton
+                            component={Link}
+                            to="/my-wishlist"
+                            startIcon={<FavoriteBorderIcon />}
+                        >
+                            Wish List
+                        </CustomizeButton>
+
+                        <CustomizeButton
+                            component={Link}
+                            to="/checkout"
+                            startIcon={<CheckCircleOutlineIcon />}
+                        >
+                            Checkout
+                        </CustomizeButton>
+
+                        <CustomizeButton component={Link} to="/signin" startIcon={<KeyIcon />}>
+                            Sign In
+                        </CustomizeButton>
+                        {/* <Box sx={{ ml: 2 }}>
+        <UserAuthenticated />
+    </Box> */}
+                    </Box>
+                </Toolbar>{' '}
+            </Container>
             {/* Corrected component name */}
         </AppBar>
     );

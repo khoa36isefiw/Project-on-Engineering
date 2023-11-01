@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Box, styled } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, styled, Container} from '@mui/material';
 import { Tooltip, IconButton, Avatar, Menu, MenuItem, ListItemIcon } from '@mui/material';
 import { AccountCircle, Dashboard, ExitToApp, Person } from '@mui/icons-material';
 import classNames from 'classnames/bind';
@@ -45,48 +45,55 @@ const CustomizeButton = styled(Button)({
 });
 
 function NewHeaderDesign() {
+    // sx={{bgcolor:'var(--header-color)'}}
     return (
-        <AppBar position="fixed">
-            <Toolbar className={cx('custom-header')}>
-                <HomeIcon fontSize="large"></HomeIcon>
+        <AppBar position="fixed" sx={{bgcolor:'var(--header-color)'}}>
+            <Container>
+                <Toolbar className={cx('custom-header')}>
+                    <HomeIcon fontSize="large"></HomeIcon>
 
-                <Typography
-                    variant="h5"
-                    sx={{ flexGrow: 1, fontSize: '16px' }}
-                    paddingLeft={2}
-                    align="left"
-                    className={cx('running-text')}
-                >
-                    <span>GIMME STORE</span>
-                </Typography>
-
-                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <CustomizeButton component={Link} to="/my-account" startIcon={<PersonIcon />}>
-                        My Account
-                    </CustomizeButton>
-
-                    <CustomizeButton
-                        component={Link}
-                        to="/my-wishlist"
-                        startIcon={<FavoriteBorderIcon />}
+                    <Typography
+                        variant="h5"
+                        sx={{ flexGrow: 1, fontSize: '16px' }}
+                        paddingLeft={2}
+                        align="left"
+                        className={cx('running-text')}
                     >
-                        Wish List
-                    </CustomizeButton>
+                        <span>GIMME STORE</span>
+                    </Typography>
 
-                    <CustomizeButton
-                        component={Link}
-                        to="/checkout"
-                        startIcon={<CheckCircleOutlineIcon />}
-                    >
-                        Checkout
-                    </CustomizeButton>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <CustomizeButton
+                            component={Link}
+                            to="/my-account"
+                            startIcon={<PersonIcon />}
+                        >
+                            My Account
+                        </CustomizeButton>
 
-                    <Box sx={{ ml: 2 }}>
-                        <UserAuthenticated />
+                        <CustomizeButton
+                            component={Link}
+                            to="/my-wishlist"
+                            startIcon={<FavoriteBorderIcon />}
+                        >
+                            Wish List
+                        </CustomizeButton>
+
+                        <CustomizeButton
+                            component={Link}
+                            to="/checkout"
+                            startIcon={<CheckCircleOutlineIcon />}
+                        >
+                            Checkout
+                        </CustomizeButton>
+
+                        <Box sx={{ ml: 2 }}>
+                            <UserAuthenticated />
+                        </Box>
                     </Box>
-                </Box>
-            </Toolbar>{' '}
-            {/* Corrected component name */}
+                </Toolbar>{' '}
+                {/* Corrected component name */}
+            </Container>
         </AppBar>
     );
 }
@@ -118,10 +125,9 @@ function UserAuthenticated() {
     const handleLogout = (setting) => {
         if (setting.label === 'Logout') {
             setIsLogoutClicked(true);
-        }
-        else {
+        } else {
             // Điều hướng đến trang tương ứng
-            navigate(`/${setting.label.toLowerCase()}`); 
+            navigate(`/${setting.label.toLowerCase()}`);
         }
         handleCloseUserMenu();
     };
