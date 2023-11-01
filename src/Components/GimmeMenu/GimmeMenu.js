@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames/bind';
-import {
-    Typography,
-    Button,
-    Box,
-    Container,
-    Stack,
-    IconButton,
-    Badge,
-} from '@mui/material';
+import { Typography, Button, Box, Container, Stack, IconButton, Badge } from '@mui/material';
 import { Link } from 'react-router-dom';
 import {
     Search as SearchIcon,
@@ -19,12 +11,12 @@ import DividerDesign from '../DividerDesign/DividerDesign';
 import Breadcrumbs from '../BreadCrumb/BreadCrumb';
 import styles from './GimmeMenu.module.scss';
 import '../GlobalStyles/GlobalStyles.scss';
+import SearchAppBar from './SearchDesgin';
 
 const cx = classNames.bind(styles);
 function GimmeMenu() {
     // show search field when user hover the pointer to search icon
     const [isSearchHovered, setIsSearchHovered] = useState(false);
-
 
     const handleSearchHover = () => {
         setIsSearchHovered(true);
@@ -37,88 +29,51 @@ function GimmeMenu() {
     return (
         <Container className={cx('gimme-mainnav_wrapper')}>
             <DividerDesign />
-            <Box className={cx('gimme_mainnav')}>
-                <Box sx={{ display: 'flex', mr: 12 }}>
-                    <Stack
-                        direction="row"
-                        spacing={8}
-                        className={cx('menu-list-item')}
+            <Box className={cx('gimme_mainnav')} sx={{ display: 'flex', alignItems: 'center' }}>
+                <Stack direction="row" spacing={8} className={cx('menu-list-item')}>
+                    <Link color="inherit" component={Link} to="/" className={cx('menu-child-item')}>
+                        HOME
+                    </Link>
+                    <Link
+                        color="inherit"
+                        component={Link}
+                        to="/shop"
+                        className={cx('menu-child-item')}
                     >
-                        <Link
-                            color="inherit"
-                            component={Link}
-                            to="/"
-                            className={cx('menu-child-item')}
-                        >
-                            HOME
-                        </Link>
-                        <Link
-                            color="inherit"
-                            component={Link}
-                            to="/shop"
-                            className={cx('menu-child-item')}
-                        >
-                            SHOP
-                        </Link>
-                        <Link
-                            color="inherit"
-                            component={Link}
-                            to="/blog"
-                            className={cx('menu-child-item')}
-                        >
-                            BLOG
-                        </Link>
-                        <Link
-                            color="inherit"
-                            component={Link}
-                            to="/contact"
-                            className={cx('menu-child-item')}
-                        >
-                            CONTACT
-                        </Link>
-                    </Stack>
+                        SHOP
+                    </Link>
+                    <Link
+                        color="inherit"
+                        component={Link}
+                        to="/blog"
+                        className={cx('menu-child-item')}
+                    >
+                        BLOG
+                    </Link>
+                    <Link
+                        color="inherit"
+                        component={Link}
+                        to="/contact"
+                        className={cx('menu-child-item')}
+                    >
+                        CONTACT
+                    </Link>
+                </Stack>
+
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <SearchAppBar />
                 </Box>
 
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <Box
-                        sx={{
-                            marginRight: 2,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            display: 'flex',
-                            position: 'relative',
-                            width: isSearchHovered ? '100%' : 'auto',
-                        }}
-                        className={cx('menu-vertical-line')}
-                        onMouseEnter={handleSearchHover}
-                        onMouseLeave={handleSearchHoverExit}
-                    >
-                        {isSearchHovered && (
-                            <input
-                                placeholder="Search..."
-                                className={cx('search-input')}
-                            />
-                        )}
-                        <IconButton
-                            color="inherit"
-                            component={Link}
-                            to="/search"
-                        >
-                            <SearchIcon />
-                        </IconButton>
-                    </Box>
-
-                    {/* card item */}
-                    <IconButton color="inherit" component={Link} to="/cart">
-                        <Badge badgeContent={0} color="error">
-                            <ShoppingCartIcon />
-                        </Badge>
-                    </IconButton>
-                </Box>
+                {/* card item */}
+                <IconButton color="inherit" component={Link} to="/cart">
+                    <Badge badgeContent={0} color="error">
+                        <ShoppingCartIcon />
+                    </Badge>
+                </IconButton>
             </Box>
             <DividerDesign />
             {/* <Breadcrumbs /> */}
-            <Breadcrumbs  />
+            <Breadcrumbs />
         </Container>
     );
 }

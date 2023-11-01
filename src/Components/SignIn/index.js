@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button, Paper, Grid, Typography, TextField, Container, Chip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
@@ -29,10 +29,17 @@ const CustomizeButton = styled(Button)(({ variant = 'contained', mt, ml, fs, wid
 
 // for person who don't have account
 // function SignIn({ isCheckout }) {
-function SignIn() {
+
+function SignIn({onSignIn}) {
+    const handleLogin = () => {
+        onSignIn(); // Gọi hàm callback onSignIn từ props
+    };
+   
+
+
     return (
         // <Box sx={{ height: '100%' }} className={cx('my-account-container')}>
-        <Container sx={{ height: '100%' }}>
+        <Container sx={{ height: '100%', minHeight:"200vh" }}>
             {/*  sx={{minHeight: '600px'}} */}
             <Box sx={{ flexGrow: 2 }}>
                 <Grid container spacing={2}>
@@ -104,13 +111,17 @@ function SignIn() {
                                 type="password"
                                 variant="outlined"
                             />
+                            
                             <CustomizeButton
                                 variant="contained"
                                 width="120px"
                                 startIcon={<LockIcon />}
+                                onClick={handleLogin}
                             >
-                                Sign In
+                                Đăng Nhập
                             </CustomizeButton>
+
+                            
                         </Item>
                     </Grid>
                 </Grid>

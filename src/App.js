@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 import PageNotFound from './pages/NotFound/PageNotFound';
@@ -20,6 +20,8 @@ import Blog from './pages/Blog/Blog';
 import Contact from './pages/ContactUs/Contact';
 import ContactUs from './pages/ContactUs/Contact';
 import SlideShowBranchStore from './Components/SlideShowImage';
+import NewHeaderDesign from './Layouts/Header/NewHeaderDesign';
+import PersonalAccount from './Components/LoggedIn/Profile/PersonalAccount';
 
 function App() {
     return (
@@ -30,6 +32,12 @@ function App() {
 }
 
 function AppContent() {
+    const [displayHeader, setDisplayHeader] = useState(true);
+
+    const handleSignIn = () => {
+        setDisplayHeader(false);
+    };
+
     const location = useLocation();
     const shouldDisplayHeaderAndFooter = location.pathname !== '/404';
 
@@ -37,8 +45,11 @@ function AppContent() {
         <>
             {shouldDisplayHeaderAndFooter && (
                 <>
-                    <HeaderDesign />
+                    {/* {displayHeader && <HeaderDesign />} */}
+                    {displayHeader ? <HeaderDesign /> : <NewHeaderDesign />}
+                    {/* <HeaderDesign /> */}
                     <SubHeader />
+
                     <GimmeMenu />
                 </>
             )}
@@ -51,8 +62,13 @@ function AppContent() {
                 <Route path="/my-wishlist" element={<WishList />}></Route>
                 <Route path="/checkout" element={<Checkout />}></Route>
                 {/* checkout = true --> mean have the className for scss */}
-                {/* <Route path='/signin' element={<SignIn  isCheckout={true} />}></Route> */}
-                <Route path="/signin" element={<SignIn />}></Route>
+
+                {/* <Route path="/signin" element={<SignIn />}></Route> */}
+                <Route path="/signin" element={<SignIn onSignIn={handleSignIn} />} />
+                <Route path="/profile" element={<PersonalAccount />} />
+                <Route path="/dashboard" element={<SignIn onSignIn={handleSignIn} />} />
+                <Route path="/account" element={<SignIn onSignIn={handleSignIn} />} />
+
                 <Route path="/register-account" element={<RegisterAccount />}></Route>
                 <Route path="/shop" element={<Shop />}></Route>
                 {/* <Route path="/blog" element={<Blog />}></Route>  */}
@@ -76,6 +92,13 @@ function AppContent() {
 }
 
 export default App;
+
+
+
+
+
+
+
 
 // function App() {
 //     // const location = useLocation();
